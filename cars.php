@@ -7,7 +7,7 @@ $db_conn = mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$db_conn) {
     echo "<p>Database connection has failed". mysqli_connect_error()."</p>";
 }   else{
-    $sql = "SELECT car_id, make, model, price FROM cars";
+    $sql = "SELECT car_id, make, model, price, yom FROM cars";
     $result = mysqli_query($db_conn, $sql);
      if ($result && mysqli_num_rows($result) > 0) {
         echo "<table>";
