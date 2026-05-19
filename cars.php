@@ -6,7 +6,7 @@ $db_conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
 if (!$db_conn) {
     echo "<p>Database connection has failed". mysqli_connect_error()."</p>";
-} else{
+}   else{
     $sql = "SELECT car_id, make, model, price FROM cars";
     $result = mysqli_query($db_conn, $sql);
      if ($result && mysqli_num_rows($result) > 0) {
@@ -26,14 +26,14 @@ if (!$db_conn) {
             $car_id = htmlspecialchars($row['car_id']);
             $make = htmlspecialchars($row['make']);
             $model = htmlspecialchars($row['model']);
+            $price = number_format($row['price']);
             $yom = htmlspecialchars($row['yom']);
             echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['car_id']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['make']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['model']) . "</td>";
-            // Formatting price nicely
-            echo "<td>$" . number_format($row['price']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['yom']) . "</td>";
+            echo "<td>" . $car_id . "</td>";
+            echo "<td>" .$make. "</td>";
+            echo "<td>" .$model. "</td>";
+            echo "<td>$" . $price . "</td>";
+            echo "<td>" . $yom . "</td>";
             echo "</tr>";
         }
             echo "</tbody>";
